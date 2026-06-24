@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SalonApp.SharedKernel
 {
-    internal class Entity
+    public abstract class Entity
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        private List<IDomainEvent> _domainEvents = new ();
+        private readonly List<IDomainEvent> _domainEvents = new ();
         public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
         public void AddDomaintEvent(IDomainEvent domainEvent)
@@ -18,7 +18,7 @@ namespace SalonApp.SharedKernel
             _domainEvents.Add(domainEvent);
         }
 
-        public void ClearDomainEvents()
+        public void ClearDomainEvents() 
         {
             _domainEvents.Clear();
         }

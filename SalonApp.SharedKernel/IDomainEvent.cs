@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SalonApp.SharedKernel
 {
-    internal interface IDomainEvent
+    public interface IDomainEvent
     {
-        DateTime OccuredOn { get; }
+        DateTime OccurredOn { get; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SalonApp.SharedKernel
 {
-    internal interface IEventDispatcher
+    public interface IEventDispatcher
     {
         Task DispatchAsync(IDomainEvent domainEvent);
     }

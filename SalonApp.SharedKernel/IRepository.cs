@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SalonApp.SharedKernel
 {
-    internal interface IRepository<T> where T : Entity
+    public interface IRepository<T> where T : Entity
     {
-        Task<T> GetByIdAsync(int id);
+        Task<T?> GetByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
         Task AddAsync(T entity);
-        Task UpdateAsync(T entity);
-        Task DeleteAsync(T entity);
+        void Update(T entity);
+        void Remove(T entity);
         Task SaveChangesAsync();
     }
 }
