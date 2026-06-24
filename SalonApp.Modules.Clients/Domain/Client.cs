@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SalonApp.Modules.Clients.Domain
+using SalonApp.SharedKernel;
+
+namespace SalonApp.Modules.Clients.Domain;
+
+public class Client : Entity
 {
-    internal class Client
-    {
-    }
+    public string FirstName { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
+    public string Phone { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+
+    public string FullName => $"{FirstName} {LastName}";
 }
