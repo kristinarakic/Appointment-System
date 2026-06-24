@@ -8,5 +8,6 @@ namespace SalonApp.SharedKernel
 {
     internal interface IEventDispatcher
     {
+        Task DispatchAsync(IDomainEvent domainEvent);
     }
 }
