@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Clients", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Services", "SalonApp.Modules.Services\SalonApp.Modules.Services.csproj", "{74951B1B-2B5C-4E20-B55D-1A2B73E7CA82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Staff", "SalonApp.Modules.Staff\SalonApp.Modules.Staff.csproj", "{B5BAC4F6-64CF-49F6-B931-2090198D2571}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{74951B1B-2B5C-4E20-B55D-1A2B73E7CA82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74951B1B-2B5C-4E20-B55D-1A2B73E7CA82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74951B1B-2B5C-4E20-B55D-1A2B73E7CA82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5BAC4F6-64CF-49F6-B931-2090198D2571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5BAC4F6-64CF-49F6-B931-2090198D2571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5BAC4F6-64CF-49F6-B931-2090198D2571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5BAC4F6-64CF-49F6-B931-2090198D2571}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
