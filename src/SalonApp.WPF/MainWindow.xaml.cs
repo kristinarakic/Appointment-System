@@ -1,4 +1,5 @@
 ﻿using SalonApp.WPF.ViewModels;
+using SalonApp.WPF.Views;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,26 +15,34 @@ namespace SalonApp.WPF;
 
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    private readonly ClientsViewModel _clientsViewModel;
+    private readonly ServicesViewModel _servicesViewModel;
+
+    public MainWindow(ClientsViewModel clientsViewModel, ServicesViewModel servicesViewModel)
     {
         InitializeComponent();
+        _clientsViewModel = clientsViewModel;
+        _servicesViewModel = servicesViewModel;
+
+        ShowClients();
     }
 
-    private async void AddClient_Click(object sender, RoutedEventArgs e)
+    private void Clients_Click(object sender, RoutedEventArgs e)
     {
-        if (DataContext is ClientsViewModel vm)
-        {
-            await vm.AddClientAsync();
-        }
+        ShowClients();
     }
 
-    private async void DeleteClient_Click(object sender, RoutedEventArgs e)
+    private void Services_Click(object sender, RoutedEventArgs e)
     {
-        if (sender is System.Windows.Controls.Button button &&
-            button.Tag is SalonApp.Modules.Clients.Domain.Client client &&
-            DataContext is ClientsViewModel vm)
-        {
-            await vm.DeleteClientAsync(client);
-        }
+        var view = new ServicesView();
+        view.DataContext = _servicesViewModel;
+        MainContent.Content = view;
+    }
+
+    private void ShowClients()
+    {
+        var view = new ClientsView();
+        view.DataContext = _clientsViewModel;
+        MainContent.Content = view;
     }
 }

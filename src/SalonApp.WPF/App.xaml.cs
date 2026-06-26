@@ -27,13 +27,13 @@ namespace SalonApp.WPF
             services.AddSalonServices(dataDirectory);
 
             //ViewModels
-            services.AddTransient<MainViewModel>();
             services.AddTransient<ClientsViewModel>();
+            services.AddTransient<ServicesViewModel>();
+            services.AddTransient<MainWindow>();
 
             _serviceProvider = services.BuildServiceProvider();
 
-            var mainWindow = new MainWindow();
-            mainWindow.DataContext = _serviceProvider.GetRequiredService<ClientsViewModel>();
+            var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
         }
     }

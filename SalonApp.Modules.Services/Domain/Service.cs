@@ -10,7 +10,7 @@ namespace SalonApp.Modules.Services.Domain
 {
     public class Service : Entity
     {
-        public string Name { get; private set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public int DurationInMinutes { get; set; }
         public decimal Price { get; set; }
     }
