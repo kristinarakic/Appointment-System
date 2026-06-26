@@ -30,7 +30,7 @@ namespace SalonApp.Infratructure.DependencyInjection
             services.AddSingleton<IRepository<Service>>(new JsonRepository<Service>(dataDirectory));
             services.AddSingleton<IRepository<StaffMember>>(new JsonRepository<StaffMember>(dataDirectory));
             services.AddSingleton<IRepository<WorkingSchedule>>(new JsonRepository<WorkingSchedule>(dataDirectory));
-            services.AddSingleton<IRepository<Appointment>>(new JsonRepository<Appointment>(dataDirectory));
+            services.AddSingleton<IAppointmentRepository>(new JsonAppointmentRepository(dataDirectory));
             services.AddSingleton<IRepository<Notification>>(new JsonRepository<Notification>(dataDirectory));
 
             // Application services

@@ -30,7 +30,7 @@
 
                 <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,10,10">
                     <TextBlock Text="Trajanje (min)"/>
-                    <TextBox Text="{Binding DurationMinutes, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Text="{Binding DurationInMinutes, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="0" Grid.Column="2" Margin="0,0,0,10">

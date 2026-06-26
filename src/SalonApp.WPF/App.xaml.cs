@@ -8,9 +8,7 @@ using System.Windows;
 
 namespace SalonApp.WPF
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+
     public partial class App : Application
     {
         private ServiceProvider _serviceProvider = null!;
@@ -31,6 +29,7 @@ namespace SalonApp.WPF
             services.AddTransient<ServicesViewModel>();
             services.AddTransient<MainWindow>();
             services.AddTransient<StaffViewModel>();
+            services.AddTransient<AppointmentsViewModel>();
 
             _serviceProvider = services.BuildServiceProvider();
 
