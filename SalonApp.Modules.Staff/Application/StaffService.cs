@@ -24,7 +24,7 @@ namespace SalonApp.Modules.Staff.Application
             return await _staffRepository.GetAllAsync();
         }
 
-        public async Task AddStaffMemeberAsync(StaffMember staffMember)
+        public async Task AddStaffMemberAsync(StaffMember staffMember)
         {
             await _staffRepository.AddAsync(staffMember);
             await _staffRepository.SaveChangesAsync();

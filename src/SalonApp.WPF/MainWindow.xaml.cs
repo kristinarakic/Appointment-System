@@ -17,12 +17,14 @@ public partial class MainWindow : Window
 {
     private readonly ClientsViewModel _clientsViewModel;
     private readonly ServicesViewModel _servicesViewModel;
+    private readonly StaffViewModel _staffViewModel;
 
-    public MainWindow(ClientsViewModel clientsViewModel, ServicesViewModel servicesViewModel)
+    public MainWindow(ClientsViewModel clientsViewModel, ServicesViewModel servicesViewModel, StaffViewModel staffViewModel)
     {
         InitializeComponent();
         _clientsViewModel = clientsViewModel;
         _servicesViewModel = servicesViewModel;
+        _staffViewModel = staffViewModel;
 
         ShowClients();
     }
@@ -36,6 +38,13 @@ public partial class MainWindow : Window
     {
         var view = new ServicesView();
         view.DataContext = _servicesViewModel;
+        MainContent.Content = view;
+    }
+
+    private void Staff_Click(object sender, RoutedEventArgs e)
+    {
+        var view = new StaffView();
+        view.DataContext = _staffViewModel;
         MainContent.Content = view;
     }
 
