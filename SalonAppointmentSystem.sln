@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Infratructure", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.WPF", "src\SalonApp.WPF\SalonApp.WPF.csproj", "{0D5FE552-396F-4071-A1C8-B694DD9FE092}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Tests", "tests\SalonApp.Tests\SalonApp.Tests.csproj", "{F4E7B59A-8AD1-4E5D-8E3B-3FF9FB734E3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{0D5FE552-396F-4071-A1C8-B694DD9FE092}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D5FE552-396F-4071-A1C8-B694DD9FE092}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D5FE552-396F-4071-A1C8-B694DD9FE092}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E7B59A-8AD1-4E5D-8E3B-3FF9FB734E3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E7B59A-8AD1-4E5D-8E3B-3FF9FB734E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E7B59A-8AD1-4E5D-8E3B-3FF9FB734E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E7B59A-8AD1-4E5D-8E3B-3FF9FB734E3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
