@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using SalonApp.Infrastructure.Persistence.Sqlite;
 using SalonApp.Infratructure.Events;
 using SalonApp.Infratructure.Persistence;
@@ -49,8 +50,7 @@ namespace SalonApp.Infratructure.DependencyInjection
 
         public static IServiceCollection AddSalonServicesWithSqlite(this IServiceCollection services, string dbPath)
         {
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlite($"Data Source={dbPath}"));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlite($"Data Source={dbPath}"));
 
             services.AddScoped<IRepository<Client>, SqliteRepository<Client>>();
             services.AddScoped<IRepository<Service>, SqliteRepository<Service>>();
