@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SalonApp.Modules.Services\SalonApp.Modules.Services.csproj" />
+    <ProjectReference Include="..\SalonApp.Modules.Staff\SalonApp.Modules.Staff.csproj" />
+    <ProjectReference Include="..\SalonApp.Modules.Appointments\SalonApp.Modules.Appointments.csproj" />
+    <ProjectReference Include="..\SalonApp.Modules.Clients\SalonApp.Modules.Clients.csproj" />
+    <ProjectReference Include="..\SalonApp.Modules.Notifications\SalonApp.Modules.Notifications.csproj" />
+    <ProjectReference Include="..\SalonApp.SharedKernel\SalonApp.SharedKernel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.9" />
+  </ItemGroup>
+
+</Project>

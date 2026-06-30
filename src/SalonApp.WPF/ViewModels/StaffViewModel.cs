@@ -55,20 +55,27 @@ namespace SalonApp.WPF.ViewModels
 
         public async Task AddStaffMemberAsync()
         {
-            var member = new StaffMember
+            try
             {
-                FirstName = FirstName,
-                LastName = LastName,
-                Specialty = Specialty
-            };
+                var member = new StaffMember
+                {
+                    FirstName = FirstName,
+                    LastName = LastName,
+                    Specialty = Specialty
+                };
 
-            await _staffService.AddStaffMemberAsync(member);
+                await _staffService.AddStaffMemberAsync(member);
 
-            FirstName = string.Empty;
-            LastName = string.Empty;
-            Specialty = string.Empty;
+                FirstName = string.Empty;
+                LastName = string.Empty;
+                Specialty = string.Empty;
 
-            LoadStaffAsync();
+                LoadStaffAsync();
+            } catch (InvalidOperationException ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Greška");
+            }
+            
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
