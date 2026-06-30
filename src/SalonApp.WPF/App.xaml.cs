@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SalonApp.Infrastructure.Persistence.Sqlite;
 using SalonApp.Infratructure.DependencyInjection;
 using SalonApp.WPF.ViewModels;
 using System.Configuration;
@@ -24,6 +25,9 @@ namespace SalonApp.WPF
 
             services.AddSalonServices(dataDirectory);
 
+            // Za SQLite:
+            // services.AddSalonServicesWithSqlite(Path.Combine(dataDirectory, "salon.db"));
+
             //ViewModels
             services.AddTransient<ClientsViewModel>();
             services.AddTransient<ServicesViewModel>();
@@ -32,6 +36,12 @@ namespace SalonApp.WPF
             services.AddTransient<AppointmentsViewModel>();
 
             _serviceProvider = services.BuildServiceProvider();
+
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                db.Database.EnsureCreated();
+            }
 
             var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
