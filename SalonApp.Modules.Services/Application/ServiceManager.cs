@@ -25,6 +25,10 @@ namespace SalonApp.Modules.Services.Application
         }
         public async Task AddServiceAsync(Service service)
         {
+            Ensure.NotNullOrEmpty(service.Name, "Naziv usluge je obavezan.");
+            Ensure.NotNegativeOrZero(service.DurationInMinutes, "Trajanje mora biti vece od 0.");
+            Ensure.NotNegativeOrZero(service.Price, "Cena mora biti veca od 0.");
+
             await _repository.AddAsync(service);
             await _repository.SaveChangesAsync();
         }

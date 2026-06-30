@@ -55,20 +55,27 @@ public class ServicesViewModel : INotifyPropertyChanged
 
     public async Task AddServiceAsync()
     {
-        var service = new Service
+        try
         {
-            Name = Name,
-            DurationInMinutes = DurationMinutes,
-            Price = Price
-        };
+            var service = new Service
+            {
+                Name = Name,
+                DurationInMinutes = DurationMinutes,
+                Price = Price
+            };
 
-        await _serviceManager.AddServiceAsync(service);
+            await _serviceManager.AddServiceAsync(service);
 
-        Name = string.Empty;
-        DurationMinutes = 0;
-        Price = 0;
+            Name = string.Empty;
+            DurationMinutes = 0;
+            Price = 0;
 
-        LoadServicesAsync();
+            LoadServicesAsync();
+        }
+        catch (InvalidOperationException ex)
+        {
+            System.Windows.MessageBox.Show(ex.Message, "Greška");
+        }
     }
 
     public async Task DeleteServiceAsync(Service service)

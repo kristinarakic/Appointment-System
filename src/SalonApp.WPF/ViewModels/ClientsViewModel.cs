@@ -80,22 +80,29 @@ namespace SalonApp.WPF.ViewModels
 
         public async Task AddClientAsync()
         {
-            var newClient = new Client
+            try
             {
-                FirstName = FirstName,
-                LastName = LastName,
-                Phone = Phone,
-                Email = Email
-            };
+                var client = new Client
+                {
+                    FirstName = FirstName,
+                    LastName = LastName,
+                    Phone = Phone,
+                    Email = Email
+                };
 
-            await _clientService.AddClientAsync(newClient);
+                await _clientService.AddClientAsync(client);
 
-            FirstName = string.Empty;
-            LastName = string.Empty;
-            Phone = string.Empty;
-            Email = string.Empty;
+                FirstName = string.Empty;
+                LastName = string.Empty;
+                Phone = string.Empty;
+                Email = string.Empty;
 
-            LoadClientsAsync();
+                LoadClientsAsync();
+            }
+            catch (InvalidOperationException ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Greška");
+            }
         }
 
         public async Task DeleteClientAsync(Client client)
