@@ -82,7 +82,7 @@ namespace SalonApp.WPF.ViewModels
         {
             try
             {
-                var client = new Client
+                var newClient = new Client
                 {
                     FirstName = FirstName,
                     LastName = LastName,
@@ -90,7 +90,7 @@ namespace SalonApp.WPF.ViewModels
                     Email = Email
                 };
 
-                await _clientService.AddClientAsync(client);
+                await _clientService.AddClientAsync(newClient);
 
                 FirstName = string.Empty;
                 LastName = string.Empty;
@@ -103,6 +103,7 @@ namespace SalonApp.WPF.ViewModels
             {
                 System.Windows.MessageBox.Show(ex.Message, "Greška");
             }
+
         }
 
         public async Task DeleteClientAsync(Client client)

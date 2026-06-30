@@ -5,22 +5,17 @@ VisualStudioVersion = 17.14.36623.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.SharedKernel", "src\SalonApp.SharedKernel\SalonApp.SharedKernel.csproj", "{2CA7652A-1EB4-4C96-A17E-77E10B96F7EE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
-	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Clients", "src\SalonApp.Modules.Clients\SalonApp.Modules.Clients.csproj", "{473963F4-CC67-406A-9174-0289152C3B68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Services", "SalonApp.Modules.Services\SalonApp.Modules.Services.csproj", "{74951B1B-2B5C-4E20-B55D-1A2B73E7CA82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Services", "src\SalonApp.Modules.Services\SalonApp.Modules.Services.csproj", "{74951B1B-2B5C-4E20-B55D-1A2B73E7CA82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Staff", "SalonApp.Modules.Staff\SalonApp.Modules.Staff.csproj", "{B5BAC4F6-64CF-49F6-B931-2090198D2571}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Staff", "src\SalonApp.Modules.Staff\SalonApp.Modules.Staff.csproj", "{B5BAC4F6-64CF-49F6-B931-2090198D2571}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Appointments", "src\SalonApp.Modules.Appointments\SalonApp.Modules.Appointments.csproj", "{7899FED0-3D00-4486-9700-B6F8B310B8F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Notifications", "src\SalonApp.Modules.Notifications\SalonApp.Modules.Notifications.csproj", "{05B842BB-FB77-4CFB-A432-3D141A08C96C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Infratructure", "src\ClassLibrary1\SalonApp.Infratructure.csproj", "{E8E5C1B4-B654-4691-9D4A-B50A23DCD9C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Infratructure", "src\SalonApp.Infrastructure\SalonApp.Infrastructure.csproj", "{E8E5C1B4-B654-4691-9D4A-B50A23DCD9C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.WPF", "src\SalonApp.WPF\SalonApp.WPF.csproj", "{0D5FE552-396F-4071-A1C8-B694DD9FE092}"
 EndProject

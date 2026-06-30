@@ -76,6 +76,7 @@ public class ServicesViewModel : INotifyPropertyChanged
         {
             System.Windows.MessageBox.Show(ex.Message, "Greška");
         }
+
     }
 
     public async Task DeleteServiceAsync(Service service)

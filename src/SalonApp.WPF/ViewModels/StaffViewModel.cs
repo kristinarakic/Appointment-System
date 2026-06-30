@@ -71,7 +71,7 @@ namespace SalonApp.WPF.ViewModels
                 Specialty = string.Empty;
 
                 LoadStaffAsync();
-            }
+            } 
             catch (InvalidOperationException ex)
             {
                 System.Windows.MessageBox.Show(ex.Message, "Greška");

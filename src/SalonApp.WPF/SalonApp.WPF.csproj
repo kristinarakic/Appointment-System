@@ -9,9 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SalonApp.Modules.Services\SalonApp.Modules.Services.csproj" />
-    <ProjectReference Include="..\..\SalonApp.Modules.Staff\SalonApp.Modules.Staff.csproj" />
-    <ProjectReference Include="..\ClassLibrary1\SalonApp.Infratructure.csproj" />
+	  
+    <ProjectReference Include="..\SalonApp.Modules.Services\SalonApp.Modules.Services.csproj" />
+    <ProjectReference Include="..\SalonApp.Modules.Staff\SalonApp.Modules.Staff.csproj" />
+    <ProjectReference Include="..\SalonApp.Infrastructure\SalonApp.Infrastructure.csproj" />
     <ProjectReference Include="..\SalonApp.Modules.Appointments\SalonApp.Modules.Appointments.csproj" />
     <ProjectReference Include="..\SalonApp.Modules.Clients\SalonApp.Modules.Clients.csproj" />
     <ProjectReference Include="..\SalonApp.Modules.Notifications\SalonApp.Modules.Notifications.csproj" />
