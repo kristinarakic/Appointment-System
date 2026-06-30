@@ -1,4 +1,5 @@
-﻿using SalonApp.Modules.Appointments.Application;
+﻿using Microsoft.EntityFrameworkCore;
+using SalonApp.Modules.Appointments.Application;
 using SalonApp.Modules.Appointments.Domain;
 using System;
 using System.Collections.Generic;
