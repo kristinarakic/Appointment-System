@@ -62,6 +62,24 @@ namespace SalonApp.WPF.ViewModels
             }
         }
 
+        private Client? _selectedClient;
+        public Client? SelectedClient
+        {
+            get => _selectedClient;
+            set
+            {
+                _selectedClient = value;
+                OnPropertyChanged(nameof(SelectedClient));
+                if (value != null)
+                {
+                    FirstName = value.FirstName;
+                    LastName = value.LastName;
+                    Phone = value.Phone;
+                    Email = value.Email;
+                }
+            }
+        }
+
         public ClientsViewModel(ClientService clientService)
         {
             _clientService = clientService;
@@ -109,6 +127,33 @@ namespace SalonApp.WPF.ViewModels
         {
             await _clientService.DeleteClientAsync(client.Id);
             LoadClientsAsync();
+        }
+
+        public async Task UpdateClientAsync()
+        {
+            if (SelectedClient == null) return;
+
+            try
+            {
+                SelectedClient.FirstName = FirstName;
+                SelectedClient.LastName = LastName;
+                SelectedClient.Phone = Phone;
+                SelectedClient.Email = Email;
+
+                await _clientService.UpdateClientAsync(SelectedClient);
+
+                SelectedClient = null;
+                FirstName = string.Empty;
+                LastName = string.Empty;
+                Phone = string.Empty;
+                Email = string.Empty;
+
+                LoadClientsAsync();
+            }
+            catch (InvalidOperationException ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Greška");
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

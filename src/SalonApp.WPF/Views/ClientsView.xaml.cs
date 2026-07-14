@@ -35,4 +35,10 @@ public partial class ClientsView : UserControl
         if (sender is Button button && button.Tag is Client client && DataContext is ClientsViewModel vm)
             await vm.DeleteClientAsync(client);
     }
+
+    private async void UpdateClient_Click(object sender, RoutedEventArgs e)
+    {
+        if (DataContext is ClientsViewModel vm)
+            await vm.UpdateClientAsync();
+    }
 }

@@ -45,10 +45,13 @@
 
                 <Button Grid.Row="2" Grid.Column="0" Content="Dodaj klijenta" 
                         Click="AddClient_Click" Padding="10,5" HorizontalAlignment="Left"/>
+                <Button Grid.Row="2" Grid.Column="1" Content="Izmeni klijenta" 
+                        Click="UpdateClient_Click" Padding="10,5" HorizontalAlignment="Left"/>
             </Grid>
         </StackPanel>
 
         <DataGrid Grid.Row="2" ItemsSource="{Binding Clients}" 
+                  SelectedItem="{Binding SelectedClient}"
                   AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
