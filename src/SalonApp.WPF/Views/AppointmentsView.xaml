@@ -67,7 +67,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding DateTime, StringFormat=dd.MM.yyyy HH:mm}" Width="150"/>
-                <DataGridTextColumn Header="Trajanje (min)" Binding="{Binding DurationMinutes}" Width="100"/>
+                <DataGridTextColumn Header="Trajanje (min)" Binding="{Binding DurationInMinutes}" Width="100"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
                 <DataGridTemplateColumn Header="Akcija" Width="80">
                     <DataGridTemplateColumn.CellTemplate>

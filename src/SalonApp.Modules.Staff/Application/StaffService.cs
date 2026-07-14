@@ -41,6 +41,10 @@ namespace SalonApp.Modules.Staff.Application
         }
         public async Task UpdateStaffMemberAsync(StaffMember staffMember)
         {
+            Ensure.NotNullOrEmpty(staffMember.FirstName, "Ime je obavezno.");
+            Ensure.NotNullOrEmpty(staffMember.LastName, "Prezime je obavezno.");
+            Ensure.NotNullOrEmpty(staffMember.Specialty, "Specijalnost je obavezna.");
+
             _staffRepository.Update(staffMember);
             await _staffRepository.SaveChangesAsync();
         }

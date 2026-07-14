@@ -37,6 +37,23 @@ namespace SalonApp.WPF.ViewModels
             set { _specialty = value; OnPropertyChanged(nameof(Specialty)); }
         }
 
+        private StaffMember? _selectedStaffMember;
+        public StaffMember? SelectedStaffMember
+        {
+            get => _selectedStaffMember;
+            set
+            {
+                _selectedStaffMember = value;
+                OnPropertyChanged(nameof(SelectedStaffMember));
+                if (value != null)
+                {
+                    FirstName = value.FirstName;
+                    LastName = value.LastName;
+                    Specialty = value.Specialty;
+                }
+            }
+        }
+
         public StaffViewModel(StaffService staffService)
         {
             _staffService = staffService;
@@ -76,6 +93,42 @@ namespace SalonApp.WPF.ViewModels
             {
                 System.Windows.MessageBox.Show(ex.Message, "Greška");
             }
+        }
+        public async Task UpdateStaffMemberAsync()
+        {
+            if (SelectedStaffMember == null) return;
+
+            try
+            {
+                SelectedStaffMember.FirstName = FirstName;
+                SelectedStaffMember.LastName = LastName;
+                SelectedStaffMember.Specialty = Specialty;
+
+                await _staffService.UpdateStaffMemberAsync(SelectedStaffMember);
+
+                SelectedStaffMember = null;
+                FirstName = string.Empty;
+                LastName = string.Empty;
+                Specialty = string.Empty;
+
+                LoadStaffAsync();
+            }
+            catch (InvalidOperationException ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Greška");
+            }
+        }
+
+        public async Task DeleteStaffMemberAsync(StaffMember member)
+        {
+            await _staffService.DeleteStaffMemberAsync(member.Id);
+
+            SelectedStaffMember = null;
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Specialty = string.Empty;
+
+            LoadStaffAsync();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

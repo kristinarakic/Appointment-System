@@ -38,18 +38,28 @@
                     <TextBox Text="{Binding Specialty, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <Button Grid.Row="1" Grid.Column="0" Content="Dodaj zaposlenog" 
-                        Click="AddStaff_Click" Padding="10,5" HorizontalAlignment="Left"/>
+                <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+                    <Button Content="Dodaj zaposlenog" Click="AddStaff_Click" Padding="10,5" Margin="0,0,10,0"/>
+                    <Button Content="Izmeni zaposlenog" Click="UpdateStaff_Click" Padding="10,5"/>
+                </StackPanel>
             </Grid>
         </StackPanel>
 
         <DataGrid Grid.Row="2" ItemsSource="{Binding StaffMembers}" 
+                  SelectedItem="{Binding SelectedStaffMember}"
                   AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
                 <DataGridTextColumn Header="Ime" Binding="{Binding FirstName}" Width="*"/>
                 <DataGridTextColumn Header="Prezime" Binding="{Binding LastName}" Width="*"/>
                 <DataGridTextColumn Header="Specijalnost" Binding="{Binding Specialty}" Width="*"/>
+                <DataGridTemplateColumn Header="Akcija" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Obrisi" Click="DeleteStaff_Click" Tag="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
