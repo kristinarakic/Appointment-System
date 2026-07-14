@@ -35,4 +35,9 @@ public partial class ServicesView : UserControl
         if (sender is Button button && button.Tag is Service service && DataContext is ServicesViewModel vm)
             await vm.DeleteServiceAsync(service);
     }
+    private async void UpdateService_Click(object sender, RoutedEventArgs e)
+    {
+        if (DataContext is ServicesViewModel vm)
+            await vm.UpdateServiceAsync();
+    }
 }

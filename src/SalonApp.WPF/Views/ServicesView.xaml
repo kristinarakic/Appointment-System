@@ -38,17 +38,20 @@
                     <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <Button Grid.Row="1" Grid.Column="0" Content="Dodaj uslugu" 
-                        Click="AddService_Click" Padding="10,5" HorizontalAlignment="Left"/>
+                <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+                    <Button Content="Dodaj uslugu" Click="AddService_Click" Padding="10,5" Margin="0,0,10,0"/>
+                    <Button Content="Izmeni uslugu" Click="UpdateService_Click" Padding="10,5"/>
+                </StackPanel>
             </Grid>
         </StackPanel>
 
         <DataGrid Grid.Row="2" ItemsSource="{Binding Services}" 
+                  SelectedItem="{Binding SelectedService}"
                   AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
                 <DataGridTextColumn Header="Naziv" Binding="{Binding Name}" Width="*"/>
-                <DataGridTextColumn Header="Trajanje (min)" Binding="{Binding DurationMinutes}" Width="100"/>
+                <DataGridTextColumn Header="Trajanje (min)" Binding="{Binding DurationInMinutes}" Width="100"/>
                 <DataGridTextColumn Header="Cena" Binding="{Binding Price}" Width="100"/>
                 <DataGridTemplateColumn Header="Akcija" Width="80">
                     <DataGridTemplateColumn.CellTemplate>

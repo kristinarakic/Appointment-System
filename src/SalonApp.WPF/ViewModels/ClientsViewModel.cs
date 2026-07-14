@@ -116,16 +116,24 @@ namespace SalonApp.WPF.ViewModels
                 Email = string.Empty;
 
                 LoadClientsAsync();
-            } catch (InvalidOperationException ex) 
+            }
+            catch (InvalidOperationException ex)
             {
                 System.Windows.MessageBox.Show(ex.Message, "Greška");
             }
-           
+
         }
 
         public async Task DeleteClientAsync(Client client)
         {
             await _clientService.DeleteClientAsync(client.Id);
+
+            SelectedClient = null;
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Phone = string.Empty;
+            Email = string.Empty;
+
             LoadClientsAsync();
         }
 

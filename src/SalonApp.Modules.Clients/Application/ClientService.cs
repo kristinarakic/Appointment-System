@@ -30,6 +30,11 @@ public class ClientService
 
     public async Task AddClientAsync(Client client)
     {
+        Ensure.NotNullOrEmpty(client.FirstName, "Ime je obavezno.");
+        Ensure.NotNullOrEmpty(client.LastName, "Prezime je obavezno.");
+        Ensure.ValidPhone(client.Phone, "Unesite ispravan broj telefona (minimum 9 cifara).");
+        Ensure.ValidEmail(client.Email, "Unesite ispravnu email adresu.");
+
         await _repository.AddAsync(client);
         await _repository.SaveChangesAsync();
     }

@@ -23,11 +23,11 @@ public class ServicesViewModel : INotifyPropertyChanged
         set { _name = value; OnPropertyChanged(nameof(Name)); }
     }
 
-    private int _durationMinutes;
-    public int DurationMinutes
+    private int _durationInMinutes;
+    public int DurationInMinutes
     {
-        get => _durationMinutes;
-        set { _durationMinutes = value; OnPropertyChanged(nameof(DurationMinutes)); }
+        get => _durationInMinutes;
+        set { _durationInMinutes = value; OnPropertyChanged(nameof(DurationInMinutes)); }
     }
 
     private decimal _price;
@@ -35,6 +35,23 @@ public class ServicesViewModel : INotifyPropertyChanged
     {
         get => _price;
         set { _price = value; OnPropertyChanged(nameof(Price)); }
+    }
+
+    private Service? _selectedService;
+    public Service? SelectedService
+    {
+        get => _selectedService;
+        set
+        {
+            _selectedService = value;
+            OnPropertyChanged(nameof(SelectedService));
+            if (value != null)
+            {
+                Name = value.Name;
+                DurationInMinutes = value.DurationInMinutes;
+                Price = value.Price;
+            }
+        }
     }
 
     public ServicesViewModel(ServiceManager serviceManager)
@@ -60,18 +77,19 @@ public class ServicesViewModel : INotifyPropertyChanged
             var service = new Service
             {
                 Name = Name,
-                DurationInMinutes = DurationMinutes,
+                DurationInMinutes = DurationInMinutes,
                 Price = Price
             };
 
             await _serviceManager.AddServiceAsync(service);
 
             Name = string.Empty;
-            DurationMinutes = 0;
+            DurationInMinutes = 0;
             Price = 0;
 
             LoadServicesAsync();
-        } catch (InvalidOperationException ex)
+        }
+        catch (InvalidOperationException ex)
         {
             System.Windows.MessageBox.Show(ex.Message, "Greška");
         }
@@ -81,7 +99,38 @@ public class ServicesViewModel : INotifyPropertyChanged
     public async Task DeleteServiceAsync(Service service)
     {
         await _serviceManager.DeleteServiceAsync(service.Id);
+
+        SelectedService = null;
+        Name = string.Empty;
+        DurationInMinutes = 0;
+        Price = 0;
+
         LoadServicesAsync();
+    }
+
+    public async Task UpdateServiceAsync()
+    {
+        if (SelectedService == null) return;
+
+        try
+        {
+            SelectedService.Name = Name;
+            SelectedService.DurationInMinutes = DurationInMinutes;
+            SelectedService.Price = Price;
+
+            await _serviceManager.UpdateServiceAsync(SelectedService);
+
+            SelectedService = null;
+            Name = string.Empty;
+            DurationInMinutes = 0;
+            Price = 0;
+
+            LoadServicesAsync();
+        }
+        catch (InvalidOperationException ex)
+        {
+            System.Windows.MessageBox.Show(ex.Message, "Greška");
+        }
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;

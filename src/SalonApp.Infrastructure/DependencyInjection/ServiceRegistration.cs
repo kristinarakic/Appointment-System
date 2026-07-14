@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SalonApp.Infrastructure.Persistence.Sqlite;
 using SalonApp.Infratructure.Events;
 using SalonApp.Infratructure.Persistence;
 using SalonApp.Modules.Appointments.Application;
@@ -41,6 +43,28 @@ namespace SalonApp.Infratructure.DependencyInjection
 
             // Event infrastructure
             services.AddSingleton<IEventDispatcher, EventDispatcher>();
+            services.AddTransient<IDomainEventHandler<AppointmentCreatedEvent>, AppointmentCreatedHandler>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddSalonServicesWithSqlite(this IServiceCollection services, string dbPath)
+        {
+            services.AddDbContext<AppDbContext>(options => options.UseSqlite($"Data Source={dbPath}"));
+
+            services.AddScoped<IRepository<Client>, SqliteRepository<Client>>();
+            services.AddScoped<IRepository<Service>, SqliteRepository<Service>>();
+            services.AddScoped<IRepository<StaffMember>, SqliteRepository<StaffMember>>();
+            services.AddScoped<IRepository<WorkingSchedule>, SqliteRepository<WorkingSchedule>>();
+            services.AddScoped<IAppointmentRepository, SqliteAppointmentRepository>();
+            services.AddScoped<IRepository<Notification>, SqliteRepository<Notification>>();
+
+            services.AddTransient<ClientService>();
+            services.AddTransient<ServiceManager>();
+            services.AddTransient<StaffService>();
+            services.AddTransient<SchedulingService>();
+
+            services.AddSingleton<IEventDispatcher>(sp => { return new EventDispatcher(sp); });
             services.AddTransient<IDomainEventHandler<AppointmentCreatedEvent>, AppointmentCreatedHandler>();
 
             return services;

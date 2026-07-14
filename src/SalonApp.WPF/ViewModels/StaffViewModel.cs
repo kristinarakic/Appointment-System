@@ -71,11 +71,11 @@ namespace SalonApp.WPF.ViewModels
                 Specialty = string.Empty;
 
                 LoadStaffAsync();
-            } catch (InvalidOperationException ex)
+            } 
+            catch (InvalidOperationException ex)
             {
                 System.Windows.MessageBox.Show(ex.Message, "Greška");
             }
-            
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
