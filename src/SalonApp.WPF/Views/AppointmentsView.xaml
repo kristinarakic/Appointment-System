@@ -61,15 +61,16 @@
                         HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
             </Grid>
         </StackPanel>
-
+        
         <DataGrid Grid.Row="2" ItemsSource="{Binding Appointments}" 
-                  AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
+          AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False"
+          HorizontalScrollBarVisibility="Disabled">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding DateTime, StringFormat=dd.MM.yyyy HH:mm}" Width="150"/>
                 <DataGridTextColumn Header="Trajanje (min)" Binding="{Binding DurationInMinutes}" Width="100"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
-                <DataGridTemplateColumn Header="Akcija" Width="80">
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+                <DataGridTemplateColumn Header="Akcija" Width="110">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Otkazi" Click="CancelAppointment_Click" Tag="{Binding}"/>

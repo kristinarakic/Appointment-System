@@ -34,6 +34,7 @@ namespace SalonApp.WPF
             services.AddTransient<MainWindow>();
             services.AddTransient<StaffViewModel>();
             services.AddTransient<AppointmentsViewModel>();
+            services.AddTransient<OverviewViewModel>();
 
             _serviceProvider = services.BuildServiceProvider();
 

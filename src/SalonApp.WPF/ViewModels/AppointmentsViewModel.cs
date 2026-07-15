@@ -56,7 +56,11 @@ namespace SalonApp.WPF.ViewModels
             {
                 _selectedStaff = value;
                 OnPropertyChanged(nameof(SelectedStaff));
-                if (value != null) LoadAvailableSlotsAsync();
+                if (value != null)
+                {
+                    LoadAvailableSlotsAsync();
+                    _ = LoadAppointmentsAsync();
+                }
             }
         }
 
@@ -69,6 +73,7 @@ namespace SalonApp.WPF.ViewModels
                 _selectedDate = value;
                 OnPropertyChanged(nameof(SelectedDate));
                 LoadAvailableSlotsAsync();
+                _ = LoadAppointmentsAsync();
             }
         }
 
@@ -160,6 +165,22 @@ namespace SalonApp.WPF.ViewModels
             await _schedulingService.CancelAppointmentAsync(appointment.Id);
             await LoadAppointmentsAsync();
             LoadAvailableSlotsAsync();
+        }
+
+        public async Task RefreshDataAsync()
+        {
+            Clients.Clear();
+            StaffMembers.Clear();
+            Services.Clear();
+
+            var clients = await _clientService.GetAllClientsAsync();
+            foreach (var c in clients) Clients.Add(c);
+
+            var services = await _serviceManager.GetAllServicesAsync();
+            foreach (var s in services) Services.Add(s);
+
+            var staff = await _staffService.GetAllStaffMembersAsync();
+            foreach (var s in staff) StaffMembers.Add(s);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

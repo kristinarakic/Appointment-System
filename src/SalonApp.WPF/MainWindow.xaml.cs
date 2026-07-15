@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using SalonApp.WPF.Views;
 namespace SalonApp.WPF;
 
 public partial class MainWindow : Window
@@ -19,15 +19,17 @@ public partial class MainWindow : Window
     private readonly ServicesViewModel _servicesViewModel;
     private readonly StaffViewModel _staffViewModel;
     private readonly AppointmentsViewModel _appointmentsViewModel;
+    private readonly OverviewViewModel _overviewViewModel;
 
     public MainWindow(ClientsViewModel clientsViewModel, ServicesViewModel servicesViewModel, StaffViewModel staffViewModel,
-                AppointmentsViewModel appointmentsViewModel)
+                AppointmentsViewModel appointmentsViewModel, OverviewViewModel overviewViewModel)
     {
         InitializeComponent();
         _clientsViewModel = clientsViewModel;
         _servicesViewModel = servicesViewModel;
         _staffViewModel = staffViewModel;
         _appointmentsViewModel = appointmentsViewModel;
+        _overviewViewModel = overviewViewModel;
 
         ShowClients();
     }
@@ -58,10 +60,20 @@ public partial class MainWindow : Window
         MainContent.Content = view;
     }
 
-    private void Appointments_Click(object sender, RoutedEventArgs e)
+    private async void Appointments_Click(object sender, RoutedEventArgs e)
     {
         var view = new AppointmentsView();
         view.DataContext = _appointmentsViewModel;
         MainContent.Content = view;
+        await _appointmentsViewModel.RefreshDataAsync();
     }
+
+    private async void Overview_Click(object sender, RoutedEventArgs e)
+    {
+        var view = new OverviewView();
+        view.DataContext = _overviewViewModel;
+        MainContent.Content = view;
+        await _overviewViewModel.RefreshDataAsync();
+    }
+
 }

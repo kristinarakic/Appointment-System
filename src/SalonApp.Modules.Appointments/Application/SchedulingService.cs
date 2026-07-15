@@ -104,5 +104,10 @@ namespace SalonApp.Modules.Appointments.Application
         {
             return await _appointmentRepository.GetByStaffAndDateAsync(staffMemberId, date);
         }
+
+        public async Task<IEnumerable<Appointment>> GetAllAppointmentsAsync()
+        {
+            return await _appointmentRepository.GetAllAsync();
+        }
     }
 }
