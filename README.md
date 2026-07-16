@@ -4,6 +4,7 @@ Sistem za zakazivanje termina u frizerskom salonu. WPF desktop aplikacija razvij
 
 ## Struktura projekta
 
+```
 SalonAppointmentSystem.sln
 ├── src/
 │   ├── SalonApp.SharedKernel/                 (bazne klase, interfejsi, eventi, Ensure)
@@ -16,7 +17,8 @@ SalonAppointmentSystem.sln
 │       ├── Appointments/ (.Domain / .Application)
 │       └── Notifications/(.Domain / .Application)
 └── tests/
-└── SalonApp.Tests/                        (xUnit, Moq, mock repozitorijumi)
+    └── SalonApp.Tests/                        (xUnit, Moq, mock repozitorijumi)
+```
 
 ## Arhitektura
 
