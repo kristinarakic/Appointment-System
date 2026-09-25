@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -18,9 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SalonApp.Modules.Services\SalonApp.Modules.Services.csproj" />
-    <ProjectReference Include="..\..\SalonApp.Modules.Staff\SalonApp.Modules.Staff.csproj" />
-    <ProjectReference Include="..\..\src\ClassLibrary1\SalonApp.Infratructure.csproj" />
+    <ProjectReference Include="..\..\src\SalonApp.Modules.Services\SalonApp.Modules.Services.csproj" />
+    <ProjectReference Include="..\..\src\SalonApp.Modules.Staff\SalonApp.Modules.Staff.csproj" />
+    <ProjectReference Include="..\..\src\SalonApp.Infrastructure\SalonApp.Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\SalonApp.Modules.Appointments\SalonApp.Modules.Appointments.csproj" />
     <ProjectReference Include="..\..\src\SalonApp.Modules.Clients\SalonApp.Modules.Clients.csproj" />
     <ProjectReference Include="..\..\src\SalonApp.Modules.Notifications\SalonApp.Modules.Notifications.csproj" />

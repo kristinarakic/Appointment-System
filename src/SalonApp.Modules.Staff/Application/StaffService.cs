@@ -64,5 +64,9 @@ namespace SalonApp.Modules.Staff.Application
             var allSchedules = await _workingScheduleRepository.GetAllAsync();
             return allSchedules.Where(s => s.StaffMemberId == staffMemberId);
         }
+        public async Task<StaffMember?> GetStaffMemberByIdAsync(int id)
+        {
+            return await _staffRepository.GetByIdAsync(id);
+        }
     }
 }

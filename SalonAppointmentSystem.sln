@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36623.8
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12217.157 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.SharedKernel", "src\SalonApp.SharedKernel\SalonApp.SharedKernel.csproj", "{2CA7652A-1EB4-4C96-A17E-77E10B96F7EE}"
 EndProject
@@ -15,11 +15,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Appointmen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Modules.Notifications", "src\SalonApp.Modules.Notifications\SalonApp.Modules.Notifications.csproj", "{05B842BB-FB77-4CFB-A432-3D141A08C96C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Infratructure", "src\SalonApp.Infrastructure\SalonApp.Infrastructure.csproj", "{E8E5C1B4-B654-4691-9D4A-B50A23DCD9C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Infrastructure", "src\SalonApp.Infrastructure\SalonApp.Infrastructure.csproj", "{E8E5C1B4-B654-4691-9D4A-B50A23DCD9C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.WPF", "src\SalonApp.WPF\SalonApp.WPF.csproj", "{0D5FE552-396F-4071-A1C8-B694DD9FE092}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.Tests", "tests\SalonApp.Tests\SalonApp.Tests.csproj", "{F4E7B59A-8AD1-4E5D-8E3B-3FF9FB734E3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonApp.API", "SalonApp.API\SalonApp.API.csproj", "{8CAFFE97-A3DE-4BA5-9C39-F5E6A8D0AC60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{F4E7B59A-8AD1-4E5D-8E3B-3FF9FB734E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4E7B59A-8AD1-4E5D-8E3B-3FF9FB734E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4E7B59A-8AD1-4E5D-8E3B-3FF9FB734E3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CAFFE97-A3DE-4BA5-9C39-F5E6A8D0AC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CAFFE97-A3DE-4BA5-9C39-F5E6A8D0AC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CAFFE97-A3DE-4BA5-9C39-F5E6A8D0AC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CAFFE97-A3DE-4BA5-9C39-F5E6A8D0AC60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
