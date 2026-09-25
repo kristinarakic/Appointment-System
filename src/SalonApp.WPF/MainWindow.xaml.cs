@@ -20,9 +20,11 @@ public partial class MainWindow : Window
     private readonly StaffViewModel _staffViewModel;
     private readonly AppointmentsViewModel _appointmentsViewModel;
     private readonly OverviewViewModel _overviewViewModel;
+    private readonly NotificationsViewModel _notificationsViewModel;
 
-    public MainWindow(ClientsViewModel clientsViewModel, ServicesViewModel servicesViewModel, StaffViewModel staffViewModel,
-                AppointmentsViewModel appointmentsViewModel, OverviewViewModel overviewViewModel)
+    public MainWindow(ClientsViewModel clientsViewModel, ServicesViewModel servicesViewModel,
+    StaffViewModel staffViewModel, AppointmentsViewModel appointmentsViewModel,
+    OverviewViewModel overviewViewModel, NotificationsViewModel notificationsViewModel)
     {
         InitializeComponent();
         _clientsViewModel = clientsViewModel;
@@ -30,6 +32,7 @@ public partial class MainWindow : Window
         _staffViewModel = staffViewModel;
         _appointmentsViewModel = appointmentsViewModel;
         _overviewViewModel = overviewViewModel;
+        _notificationsViewModel = notificationsViewModel;
 
         ShowClients();
     }
@@ -74,6 +77,14 @@ public partial class MainWindow : Window
         view.DataContext = _overviewViewModel;
         MainContent.Content = view;
         await _overviewViewModel.RefreshDataAsync();
+    }
+
+    private async void Notifications_Click(object sender, RoutedEventArgs e)
+    {
+        var view = new NotificationsView();
+        view.DataContext = _notificationsViewModel;
+        MainContent.Content = view;
+        await _notificationsViewModel.LoadNotificationsAsync();
     }
 
 }

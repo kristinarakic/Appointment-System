@@ -24,6 +24,8 @@ namespace SalonApp.Tests
             };
 
             // Act
+
+
             appointment.Cancel();
 
             // Assert

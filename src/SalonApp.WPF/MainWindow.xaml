@@ -22,6 +22,8 @@
                     Margin="10,5" Padding="10,8" HorizontalContentAlignment="Left"/>
             <Button Content="Pregled termina" Click="Overview_Click" 
                     Margin="10,5" Padding="10,8" HorizontalContentAlignment="Left"/>
+            <Button Content="Obaveštenja" Click="Notifications_Click" 
+                    Margin="10,5" Padding="10,8" HorizontalContentAlignment="Left"/>
         </StackPanel>
 
         <!-- Sadrzaj -->

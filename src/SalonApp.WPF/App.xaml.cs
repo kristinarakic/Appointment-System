@@ -1,11 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SalonApp.Infrastructure.Persistence.Sqlite;
-using SalonApp.Infratructure.DependencyInjection;
-using SalonApp.WPF.ViewModels;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Windows;
+using Microsoft.Extensions.DependencyInjection;
+using SalonApp.Infrastructure.Persistence.Sqlite;
+using SalonApp.Infratructure.DependencyInjection;
+using SalonApp.Modules.Notifications.Application;
+using SalonApp.WPF.ViewModels;
 
 namespace SalonApp.WPF
 {
@@ -35,6 +36,8 @@ namespace SalonApp.WPF
             services.AddTransient<StaffViewModel>();
             services.AddTransient<AppointmentsViewModel>();
             services.AddTransient<OverviewViewModel>();
+            services.AddTransient<NotificationService>();
+            services.AddTransient<NotificationsViewModel>();
 
             _serviceProvider = services.BuildServiceProvider();
 
